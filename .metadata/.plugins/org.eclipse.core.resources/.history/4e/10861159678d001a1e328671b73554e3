@@ -1,0 +1,50 @@
+package newpackage;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By;
+//import org.openqa.selenium.Keys;
+
+public class dropdown {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.gecko.driver","/webdriver/geckodriver.exe");
+		 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		 capabilities.setCapability("marionette", true);
+
+		 WebDriver driver = new FirefoxDriver();
+
+		 driver.get("http://formy-project.herokuapp.com/dropdown");
+		 
+		/*
+		 Select DropdownMenu = new Select (driver.findElement(By.id("autocomplete")));
+		 DropdownMenu.selectByVisibleText(Autocomplete);
+		 */
+		 WebElement DropdownMenu = driver.findElement(By.id("dropdownMenuButton"));
+		 DropdownMenu.click();
+		 Thread.sleep(3000);
+		 		
+		 WebElement autocompleteItem = driver.findElement(By.id("autocomplete"));
+		 autocompleteItem.click();
+		 Thread.sleep(3000);
+		 driver.close();
+		
+		 /*
+		 
+		 WebDriver driver1 = new FirefoxDriver();
+		 driver1.get("http://formy-project.herokuapp.com/dropdown");
+		 WebElement DropdownMenu1 = driver1.findElement(By.id("dropdownMenuButton"));
+		 DropdownMenu1.click();
+		 Thread.sleep(5000);
+		 WebElement ButtonItem = driver1.findElement(By.xpath("/html/body/div/div/div/a[2]"));
+		 ButtonItem.click();
+		 Thread.sleep(3000);
+		 */
+		 driver.close();
+		 
+	}
+
+}

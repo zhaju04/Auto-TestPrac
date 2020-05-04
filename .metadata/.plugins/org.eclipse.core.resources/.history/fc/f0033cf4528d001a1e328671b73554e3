@@ -1,0 +1,32 @@
+package newpackage;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+
+
+public class datepicker {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.gecko.driver","/webdriver/geckodriver.exe");
+		 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		 capabilities.setCapability("marionette", true);
+
+		 WebDriver driver = new FirefoxDriver();
+
+		 driver.get("http://formy-project.herokuapp.com/datepicker");
+		 
+		 WebElement dateField = driver.findElement(By.id("datepicker"));
+		 dateField.sendKeys("05/03/2021");
+		 dateField.sendKeys(Keys.RETURN);
+		 
+		 
+		 driver.close();
+		 
+	}
+
+}

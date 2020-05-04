@@ -1,0 +1,31 @@
+package newpackage;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By;
+//import org.openqa.selenium.Keys;
+
+
+public class dropdown1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		 System.setProperty("webdriver.gecko.driver","/webdriver/geckodriver.exe");
+		 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		 capabilities.setCapability("marionette", true);
+
+		 WebDriver driver = new FirefoxDriver();
+
+		 driver.get("http://formy-project.herokuapp.com/dropdown");
+		 
+		 Select DropdownMenu = new Select (driver.findElement(By.id("dropdownMenuButton")));
+		 Thread.sleep(3000);
+		 DropdownMenu.selectByVisibleText("Autocomplete");
+
+		 driver.close();
+	}
+
+}
